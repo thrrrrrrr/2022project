@@ -1,4 +1,7 @@
+import csv
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
 
 def cluster():
     #聚类 并统计高频词
