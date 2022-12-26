@@ -13,3 +13,6 @@ with open('cluster2.csv', 'r', encoding='utf-8', newline='') as f:
 w = wordcloud.WordCloud(scale=2,font_path="msyh.ttc",width=1000,height=700,background_color="white",mask=mask)
 w.generate(items)
 w.to_file("output2.png")#输出词云
+
+#对csv文件进行数据分析，生成词云
+
