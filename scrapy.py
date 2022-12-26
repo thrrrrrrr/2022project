@@ -40,11 +40,25 @@ def parse_html(html):
     itempipe4csv(items)
 
 
+
+
+
 def itempipe4csv(items):
-    #保存到csv
+    with open('MailListTitle.csv', 'a+', encoding='utf-8', newline='') as f:
+        # newline='' 解决CSV换行问题
+        writer = csv.writer(f)
+        for item in items:
+            s = str(item)
+            index = -1
+            if s.__contains__(':'):
+                index = int(s.rindex(':')+1)
+            if s.__contains__(']'):
+                index = max(int(s.rindex(']')+1), index)
+            writer.writerow([s[index:]])
+
+        f.close()
 
 
 if __name__ == '__main__':
     get_request(100)
-
 
