@@ -5,7 +5,11 @@ from sklearn.cluster import KMeans
 
 def cluster():
     #聚类 并统计高频词
-    
+     vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform(items)
+    true_k = 3
+    model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
+    model.fit(X)
 
 def save(model):
     #将结果保存
