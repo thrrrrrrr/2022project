@@ -35,8 +35,9 @@ def get_request(pages):
 
 
 def parse_html(html):
-    #解析html中的信息
-    #并保存
+    root = etree.HTML(html)
+    items = root.xpath('/html/body/ul[2]/li/strong/a/text()')
+    itempipe4csv(items)
 
 
 def itempipe4csv(items):
