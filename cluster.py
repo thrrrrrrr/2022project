@@ -24,6 +24,22 @@ def cluster():
 
 def save(model):
     #将结果保存
+    with open('cluster0.csv', 'a+', encoding='utf-8', newline='') as f0:
+        with open('cluster1.csv', 'a+', encoding='utf-8', newline='') as f1:
+            with open('cluster2.csv', 'a+', encoding='utf-8', newline='') as f2:
+                writer0 = csv.writer(f0)
+                writer1 = csv.writer(f1)
+                writer2 = csv.writer(f2)
+                for i,item in enumerate(items):
+                    if(model.labels_[i] == 0):
+                        writer0.writerow([str(item)])
+                    if (model.labels_[i] == 1):
+                        writer1.writerow([str(item)])
+                    if (model.labels_[i] == 2):
+                        writer2.writerow([str(item)])
+                f0.close()
+                f1.close()
+                f2.close()
 
 
 if __name__ == '__main__':
